@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom";
+
 //Creating nested HTML by React
 {/* <div id = "parent">
     <div id = "child">
