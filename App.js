@@ -1,44 +1,58 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
-//Creating nested HTML by React
-{/* <div id = "parent">
-    <div id = "child">
-        <h1>I'm h1 tag</h1>
+// React element
+const heading = React.createElement("h1", {id : "heading"}, "React learn");
+const root1 = ReactDOM.createRoot(document.getElementById("root"));
+root1.render(heading);
+
+//React functional component
+const HeadingComponent = () => (
+    <div>
+        <h1 className="heading">Hello from functional component</h1>
     </div>
-</div> */}
-
-const parent1 = React.createElement(
-    "div", 
-    {id:"parent"},
-    React.createElement(
-        "div", 
-        {id:"child"},
-        React.createElement("h1", {}, "I'm a h1 tag")
-    )
 );
-
-
-//const heading = React.createElement("h1", {id : "heading"}, "Hello from React");
+// Rendering React component
 // const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(parent1);
+// root.render(<HeadingComponent/>)
 
-// creating siblings 
-{/* <div id = "parent">
-    <div id = "child">
-        <h1>I'm h1 tag</h1>
-        <h2>I'm h2 tag</h2>
+
+//JS inside react component
+const data = 50;
+const HeadingComponentA = () => (
+    <div>
+        {<h1>data</h1>}
+        <h1 className="heading">Hello from functional component</h1>
     </div>
-</div> */}
-
-const parent2 = React.createElement(
-    "div", 
-    {id:"parent"},
-    React.createElement(
-        "div", 
-        {id:"child"},
-        [React.createElement("h1", {}, "I'm a h1 tag"), React.createElement("h2", {}, "I'm a h2 tag")]
-    )
 );
 const root2 = ReactDOM.createRoot(document.getElementById("root"));
-root2.render(parent2);
+root2.render(<HeadingComponentA/>)
+
+
+
+// React component inside another react component
+const Title = () =>(
+    <h1>Hello from title</h1>
+);
+const HeadingComponentB = () => (
+    <div>
+        <Title></Title>
+        <h1 className="heading">Hello from functional component</h1>
+    </div>
+);
+const root3 = ReactDOM.createRoot(document.getElementById("root"));
+root3.render(<HeadingComponentB/>)
+
+
+//React element inside react component
+const titleA = (
+    <h1>Hello from title</h1>
+);
+const HeadingComponentC = () => (
+    <div>
+        {titleA}
+        <h1 className="heading">Hello from functional component</h1>
+    </div>
+);
+const root4 = ReactDOM.createRoot(document.getElementById("root"));
+root4.render(<HeadingComponentC/>)
