@@ -4,7 +4,7 @@
     border: 1px solid black;
 }
 
-.logo {
+.logo-container {
     width: 200px;
 }
 
@@ -51,4 +51,12 @@
 
 .res-logo{
     width: 100%;
+}
+
+.filter-btn {
+    margin: 10px;
+}
+
+.filter-btn:hover{
+    cursor: pointer;
 }
